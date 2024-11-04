@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { UserService } from '../service/app.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-user-form',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule,RouterOutlet,CommonModule],
+  imports: [FormsModule,ReactiveFormsModule,RouterOutlet,CommonModule,RouterLink],
   templateUrl: './user-form.component.html',
   styleUrl: './user-form.component.css'
 })
@@ -29,5 +29,7 @@ export class UserFormComponent implements OnInit{
       this.route.navigate(['']);
     })
   }
+
+  
 
 }

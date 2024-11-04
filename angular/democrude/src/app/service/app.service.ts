@@ -9,11 +9,13 @@ import { Observable } from "rxjs";
 
 export class UserService{
     private baseUrl = "http://localhost:8080/profile";
-   
+    
+
+    
     public constructor(private httpClient:HttpClient){}
 
-    public getallUser():Observable<any>{
-        return this.httpClient.get(this.baseUrl);
+    public getallUser():Observable<User[]>{
+        return this.httpClient.get<User[]>(this.baseUrl);
     }
 
     PostUser(data:User){
@@ -21,10 +23,10 @@ export class UserService{
     }
 
     putUser(id:number, data:User){
-        return this.httpClient.put(this.baseUrl+"/"+id,data);
+        return this.httpClient.put(this.baseUrl+"/"+id,data,{ responseType: 'text' });
     }
 
     deleteUser(id:number){
-        return this.httpClient.delete(this.baseUrl+"/"+id);
+        return this.httpClient.delete(this.baseUrl+"/"+id,{ responseType: 'text' });
     }
 }

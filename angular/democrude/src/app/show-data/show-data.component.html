@@ -4,7 +4,7 @@
         <h2>User Information table</h2>
     </div>
     <div class="col-md-5 text-end"> 
-        <button type="button" class="btn btn-outline-primary">Add</button>
+        <button type="button" class="btn btn-outline-primary" routerLink="form">Add</button>
     </div>
 </div>
    <div class="w-75 mx-auto mt-5">
@@ -21,14 +21,46 @@
         <tbody>
           @for (item of showData; track $index) {
           <tr>
-            <!-- <th scope="row">{{item.id}}</th> -->
+            <th scope="row">{{item.id}}</th>
             <td>{{item.name}}</td>
             <td>{{item.role}}</td>
-            <td class="text-end"><button type="button" class="btn btn-outline-primary me-3">Edit</button> 
-              <button type="button" class="btn btn-outline-danger">delete</button></td>
+            <td class="text-end"><button type="button" class="btn btn-outline-primary me-3"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="showEditData(item)">Edit</button> 
+              <button type="button" class="btn btn-outline-danger" (click)="deleteUser(item.id)">delete</button></td>
           </tr>
       }
         </tbody>
       </table>
    </div>
+</div>
+
+
+<!-- modal form -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Edit User</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class=" mx-auto">
+          <form [formGroup]="formValue" (ngSubmit)="userUpdateData()">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Name</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" formControlName="name">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Role</label>
+              <input type="text" class="form-control" id="exampleInputPassword1" formControlName = "role">
+            </div>
+           
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Edit</button>
+          </form>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
