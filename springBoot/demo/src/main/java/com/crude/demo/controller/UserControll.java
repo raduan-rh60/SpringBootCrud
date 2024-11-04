@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("profile")
 public class UserControll {
 
@@ -28,11 +29,11 @@ public class UserControll {
         User userData = userServiceImp.getUserById(id);
         return new ResponseEntity<>(userData,HttpStatus.OK);
     }
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping
-    public ResponseEntity<String> createUser(@RequestBody User user){
-        userServiceImp.addUser(user);
-        return new ResponseEntity<>("User Created Successful",HttpStatus.CREATED);
+    public ResponseEntity<User> createUser(@RequestBody User user){
+
+        return new ResponseEntity<>(userServiceImp.addUser(user),HttpStatus.CREATED);
     }
 
     @PutMapping("{id}")
@@ -41,7 +42,7 @@ public class UserControll {
         userServiceImp.updateUser(user);
         return new ResponseEntity<>("User Update Successful",HttpStatus.OK);
     }
-
+    @CrossOrigin(origins = "*")
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteUser(@PathVariable("id") int id){
         userServiceImp.deleteUser(id);
