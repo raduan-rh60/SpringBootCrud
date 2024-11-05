@@ -29,4 +29,8 @@ export class UserService{
     deleteUser(id:number){
         return this.httpClient.delete(this.baseUrl+"/"+id,{ responseType: 'text' });
     }
+
+    getDataByID(id:string):Observable<User>{
+        return this.httpClient.get<User>(this.baseUrl+"/"+id);
+    }
 }

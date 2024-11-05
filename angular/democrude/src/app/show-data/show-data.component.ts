@@ -51,4 +51,5 @@ export class ShowDataComponent implements OnInit {
       this.getAllData();
     });
   }
+
 }

@@ -22,7 +22,7 @@
           @for (item of showData; track $index) {
           <tr>
             <th scope="row">{{item.id}}</th>
-            <td>{{item.name}}</td>
+            <td><a routerLink="/profile/{{item.id}}">{{item.name}}</a></td>
             <td>{{item.role}}</td>
             <td class="text-end"><button type="button" class="btn btn-outline-primary me-3"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="showEditData(item)">Edit</button> 
               <button type="button" class="btn btn-outline-danger" (click)="deleteUser(item.id)">delete</button></td>
