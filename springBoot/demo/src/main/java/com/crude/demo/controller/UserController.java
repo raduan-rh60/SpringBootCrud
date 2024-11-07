@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RequestMapping("profile")
 public class UserController {
 
@@ -23,6 +23,7 @@ public class UserController {
         return new ResponseEntity<>(alluser, HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("{id}")
     public ResponseEntity<User> userbyid(@PathVariable("id") int id ){
         User userData = userServiceImp.getUserById(id);

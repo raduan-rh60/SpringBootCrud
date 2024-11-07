@@ -43,6 +43,7 @@ public class UserServiceImp implements UserServices{
             existingUser.setName(user.getName());
             existingUser.setRole(
                     user.getRole());
+            existingUser.setSalary(user.getSalary());
          return userRepo.save(existingUser);
 
         }
