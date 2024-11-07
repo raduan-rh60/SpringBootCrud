@@ -18,7 +18,8 @@ export class UserFormComponent implements OnInit{
    this.formValue = this.formBuilder.group(
     {
       name:[''],
-      role:['']
+      role:[''],
+      salary:[]
     }
    );
   }

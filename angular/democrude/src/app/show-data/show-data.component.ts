@@ -21,7 +21,8 @@ export class ShowDataComponent implements OnInit {
   ngOnInit(): void {
     this.formValue = this.formBuilder.group({
       name:[''],
-      role:['']
+      role:[''],
+      salary:[]
     })
 
     this.getAllData();
@@ -42,6 +43,7 @@ export class ShowDataComponent implements OnInit {
     this.userModel=data;
     this.formValue.controls['name'].setValue(data.name);
     this.formValue.controls['role'].setValue(data.role);
+    this.formValue.controls['salary'].setValue(data.salary);
 
   }
 

@@ -4,16 +4,27 @@
         <h2>User Information table</h2>
     </div>
     <div class="col-md-5 text-end"> 
-        <button type="button" class="btn btn-outline-primary" routerLink="form">Add</button>
+        <button type="button" class="btn btn-outline-primary" routerLink="../form">Add</button>
     </div>
 </div>
-   <div class="w-75 mx-auto mt-5">
+   <div class=" mx-auto mt-5">
+    <div class="text-end my-3">
+      <button
+        type="button"
+        class="btn btn-info"
+      >
+        Export Excel
+      </button>
+      
+    </div>
     <table class="table table-striped ">
         <thead>
           <tr>
-            <th scope="col" class="w-25">id</th>
+            <th scope="col">id</th>
             <th scope="col" class="w-25">Name</th>
-            <th scope="col" class="w-25" >Role</th>
+            <th scope="col" >Role</th>
+            <th scope="col" >Monthly Salary</th>
+            <th scope="col" >Yearly Salary</th>
             <th class="w-0"></th>
             
           </tr>
@@ -24,6 +35,8 @@
             <th scope="row">{{item.id}}</th>
             <td><a routerLink="/profile/{{item.id}}">{{item.name}}</a></td>
             <td>{{item.role}}</td>
+            <td>{{item.salary}}</td>
+            <td>{{item.salary*12}}</td>
             <td class="text-end"><button type="button" class="btn btn-outline-primary me-3"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="showEditData(item)">Edit</button> 
               <button type="button" class="btn btn-outline-danger" (click)="deleteUser(item.id)">delete</button></td>
           </tr>
@@ -52,6 +65,10 @@
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Role</label>
               <input type="text" class="form-control" id="exampleInputPassword1" formControlName = "role">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Salary</label>
+              <input type="number" class="form-control" id="exampleInputPassword1" formControlName = "salary">
             </div>
            
             <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Edit</button>

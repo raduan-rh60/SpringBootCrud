@@ -33,4 +33,7 @@ export class UserService{
     getDataByID(id:string):Observable<User>{
         return this.httpClient.get<User>(this.baseUrl+"/"+id);
     }
+    getDataBylogin(id:string,userName:string){
+        return this.httpClient.get(this.baseUrl+"/"+id+"/"+userName);
+    }
 }
