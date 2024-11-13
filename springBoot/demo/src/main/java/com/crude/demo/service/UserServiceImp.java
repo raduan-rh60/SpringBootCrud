@@ -4,6 +4,9 @@ import com.crude.demo.Exceptions.UserNotFound;
 import com.crude.demo.entity.User;
 import com.crude.demo.repo.UserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -53,4 +56,6 @@ public class UserServiceImp implements UserServices{
     public void deleteUser(int id) {
         userRepo.deleteById(id);
     }
+
+
 }

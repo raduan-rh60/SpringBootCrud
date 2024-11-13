@@ -3,6 +3,7 @@ package com.crude.demo.controller;
 import com.crude.demo.entity.User;
 import com.crude.demo.service.UserServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -48,4 +49,6 @@ public class UserController {
         userServiceImp.deleteUser(id);
         return new ResponseEntity<>("User deleted successful",HttpStatus.OK);
     }
+
+
 }
