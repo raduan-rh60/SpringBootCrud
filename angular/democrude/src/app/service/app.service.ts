@@ -36,4 +36,9 @@ export class UserService{
     getDataBylogin(id:string,userName:string){
         return this.httpClient.get(this.baseUrl+"/"+id+"/"+userName);
     }
+
+    getReport(formate:any){
+        return this.httpClient.get(this.baseUrl+"/reports/"+formate);
+    }
+
 }

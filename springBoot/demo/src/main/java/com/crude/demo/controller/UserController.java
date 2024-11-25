@@ -1,14 +1,18 @@
 package com.crude.demo.controller;
 
 import com.crude.demo.entity.User;
+import com.crude.demo.service.UserReportService;
 import com.crude.demo.service.UserServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -17,6 +21,9 @@ public class UserController {
 
     @Autowired
     private UserServiceImp userServiceImp;
+
+    @Autowired
+    private UserReportService userReport;
 
     @GetMapping
     public ResponseEntity<List<User>> showall(){
@@ -50,5 +57,11 @@ public class UserController {
         return new ResponseEntity<>("User deleted successful",HttpStatus.OK);
     }
 
-
+    @GetMapping(value = "/reports/{format}",produces = {MediaType.APPLICATION_JSON_VALUE})
+    public Map<String,String> exportReport(@PathVariable String format){
+        String st= userReport.exportReport(format);
+        Map<String,String> map=new HashMap<>();
+        map.put("key1",st);
+        return map;
+    }
 }

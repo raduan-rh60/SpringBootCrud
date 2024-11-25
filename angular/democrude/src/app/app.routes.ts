@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { DetailsComponent } from './details/details.component';
 import { LoginComponent } from './login/login.component';
+import { ReportComponent } from './report/report.component';
 
 export const routes: Routes = [
   {path: '',component: LoginComponent},
@@ -13,4 +14,5 @@ export const routes: Routes = [
   {path:'profile/:id',component:UserInfoComponent},
   {path:'details',component:DetailsComponent},
   {path:'user',component:ShowDataComponent},
+  {path:'report',component:ReportComponent}
 ];
